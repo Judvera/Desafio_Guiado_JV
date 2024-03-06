@@ -1,6 +1,9 @@
 import random
 
+# define la clase Personaje
 class Personaje:
+
+     # Constructor __init__
     def __init__(self, nombre):
         self.nombre = nombre
         self.nivel = 1
@@ -14,6 +17,7 @@ class Personaje:
             f"Experiencia: {self.experiencia}",
         )
 
+# calcula probabilidad
     def probabilidad_ganar(self, other):
         diferencia_niveles = self.nivel - other.nivel
 
@@ -24,6 +28,7 @@ class Personaje:
         else:
             return 0.5
 
+# muestra el dialogo
     @staticmethod
     def mostrar_dialogo_opcion(probabilidad_ganar):
         return int(
@@ -37,7 +42,7 @@ class Personaje:
                 "2. Huir\n"
             )
         )
-
+# enfrentamiento
     def enfrentar_orco(self, orco):
         probabilidad_ganar = self.probabilidad_ganar(orco)
         opcion = self.mostrar_dialogo_opcion(probabilidad_ganar)
